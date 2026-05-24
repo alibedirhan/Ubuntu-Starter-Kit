@@ -1,32 +1,17 @@
-# Log dosyaları
+# Runtime output
+logs/
+release/
+dist/
 *.log
-kurulum.log
-
-# Geçici dosyalar
-/tmp/
-temp/
 *.tmp
-*.temp
-
-# Yedek dosyaları
 *.bak
-*.backup
-*~
+*.swp
 
-# Sistem dosyaları
+# OS/editor
 .DS_Store
 Thumbs.db
-
-# IDE dosyaları
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Test dosyaları
-test/
-tests/
-
-# Paket listeleri (kullanıcı verileri)
-benim-programlarim*.txt
-paket-listesi*.txt
+# Local test folders
+/tmp/

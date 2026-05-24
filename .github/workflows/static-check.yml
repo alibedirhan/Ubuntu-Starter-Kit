@@ -1,0 +1,17 @@
+name: Static Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install optional tools
+        run: sudo apt-get update && sudo apt-get install -y shellcheck zip rsync
+      - name: Run static checks
+        run: bash scripts/check_static.sh
+      - name: Build release package
+        run: bash scripts/package_release.sh

@@ -1,117 +1,128 @@
-# Ubuntu Program Kurulum Yöneticisi 🚀
+# Ubuntu Starter Kit v1.0.3
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+Ubuntu Starter Kit, Ubuntu kurulumundan sonra sık kullanılan uygulamaları seçip kurmanıza yardımcı olan sade bir başlangıç asistanıdır.
+
+Bu araç **Ubuntu App Center'ın yerine geçmez**. Amacı; yeni kullanıcıya anlaşılır bir seçim ekranı sunmak, uygulamaların hangi kaynaktan kurulacağını göstermek, kurulum aşamalarını terminalde görünür kılmak ve sonunda net bir rapor vermektir.
+
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-20.04%2B-orange.svg)
 ![Shell](https://img.shields.io/badge/Shell-Bash-green.svg)
-![Zenity](https://img.shields.io/badge/GUI-Zenity-purple.svg)
+![GUI](https://img.shields.io/badge/GUI-Zenity-purple.svg)
+![Version](https://img.shields.io/badge/version-1.0.3-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-Ubuntu için geliştirilmiş, kullanıcı dostu bir program kurulum aracı. Terminal bilgisi gerektirmeden tek tıkla program kurulumu yapabilirsiniz.
+## Ne yapar?
 
-## 🌟 Özellikler
+- Kullanıcı profiline göre uygulama önerir.
+- Kategorilerden **boş liste**, **önerilenleri seç** veya **tümünü seç** akışı sunar.
+- Tüm katalogdan manuel uygulama seçimi sunar.
+- Seçim ekranlarında uygulamalar varsayılan olarak seçili gelmez; kullanıcı bilinçli seçim yapar.
+- Kurulumdan önce hangi uygulamanın hangi kaynaktan kurulacağını gösterir.
+- Kurulum sırasında terminalde daha temiz, kutulu ve okunaklı aşama çıktısı gösterir.
+- APT ve Snap üzerinden kontrollü kurulum yapar.
+- Sudo şifresini özel bir pencereyle toplamaz; terminalin standart sudo istemini kullanır.
+- Kurulum sonucunu raporlar.
+- Seçtiğiniz uygulama listesini kaydedip daha sonra tekrar kurabilir.
 
-- **Kolay Kullanım**: Grafiksel arayüz ile basit kurulum
-- **Kategori Desteği**: Programlar kategorilere ayrılmış durumda
-- **Çoklu Kurulum**: Birden fazla programı aynı anda kurabilme
-- **Güvenli**: Sudo yetkisi ile güvenli kurulum
-- **Log Sistemi**: Tüm işlemler kayıt altına alınır
-- **Türkçe Arayüz**: Tamamen Türkçe kullanıcı deneyimi
+## Ne yapmaz?
 
-## 📸 Ekran Görüntüleri
+- Rastgele internet sitesinden `.deb` indirmez.
+- `curl | sudo bash` tarzı kök yetkili script çalıştırmaz.
+- Tüm sistem paketlerini `dpkg --set-selections` ile geri yüklemez.
+- Ubuntu App Center, apt veya snap yerine geçmez.
 
-### Ana Menü
-![Ana Menü](./screenshots/main-menu.png)
-*Programın ana menüsü - tüm işlemler buradan başlar*
+## Kurulum ve çalıştırma
 
-### Kategori Seçimi
-![Kategori Seçimi](./screenshots/category-selection.png)
-*Kurulum yapılacak program kategorilerini seçin*
-
-### Kurulum Tercihi
-![Kurulum Tercihi](./screenshots/installation-preference.png)
-*Kurulum yöntemini belirleyin*
-
-### Program Seçimi
-![Program Seçimi](./screenshots/program-selection.png)
-*Kategoriye göre programları seçin*
-
-### Kurulum Onayı
-![Kurulum Onayı](./screenshots/installation-confirm.png)
-*Seçilen programları gözden geçirin ve onaylayın*
-
-### Kurulum Raporu
-![Kurulum Raporu](./screenshots/installation-report.png)
-*Kurulum sonuçlarını görüntüleyin*
-
-## 🛠️ Kurulum
-
-### Gereksinimler
-- Ubuntu 20.04 veya üzeri
-- Zenity paketi (otomatik kurulur)
-- Sudo yetkisi
-
-### Kurulum Adımları
-
-1. Repoyu klonlayın:
 ```bash
 git clone https://github.com/alibedirhan/ubuntu-app-ins.git
 cd ubuntu-app-ins
+
+bash scripts/check_static.sh
+chmod +x ubuntu-starter.sh
+./ubuntu-starter.sh
 ```
 
-2. Çalıştırma izni verin:
-```bash
-chmod +x application-installer.sh
-```
+Eski dosya adını kullananlar için uyumluluk başlatıcısı da var:
 
-3. Programı başlatın:
 ```bash
 ./application-installer.sh
 ```
 
-## 📦 Desteklenen Programlar
+## Ana akış
 
-### Geliştirici Araçları
-- Git, VS Code, Node.js, Vim, Curl, Wget
-- Python, Build Essential araçları
+1. Programı başlatın.
+2. Profil, kategori veya tüm katalog seçimini açın.
+3. Kategori akışında boş listeyle başlayın, önerilenleri seçili getirin veya tüm kategoriyi toplu seçin.
+4. Kurulum kaynaklarını ve paket listesini onaylayın.
+5. Terminalde sudo istenirse şifrenizi standart sudo istemine yazın.
+6. Kurulum sırasında terminalde temiz aşama kartlarıyla hangi uygulamanın ne durumda olduğunu takip edin.
+7. Kurulum raporunu inceleyin.
 
-### Multimedya
-- VLC, GIMP, Spotify, Audacity
-- OBS Studio, Kdenlive
+## Profiller
 
-### Sistem Araçları
-- Htop, GParted, UFW, Neofetch
-- TimeShift, BleachBit
+- Yeni kullanıcı
+- Günlük kullanım
+- Yazılımcı
+- İçerik üretici
+- Sistem araçları
+- Oyun
+- Minimal kurulum
 
-### Ofis Uygulamaları
-- LibreOffice, Thunderbird, Telegram
+## Kategoriler
 
-## 💻 Kullanım
+- Günlük kullanım
+- İletişim ve internet
+- Medya ve içerik üretimi
+- Geliştirici araçları
+- Sistem araçları
+- Oyun
+- Flatpak desteği
 
-1. Programı başlattığınızda ana menü açılır
-2. "install" seçeneğini seçin
-3. Kurmak istediğiniz kategorileri işaretleyin
-4. Kurulum yöntemini seçin (Otomatik önerilir)
-5. Kurulum modunu seçin (Seçmeli veya Tam)
-6. Programları seçin ve onaylayın
-7. Sudo şifrenizi girin
-8. Kurulum tamamlanana kadar bekleyin
+## Kurulum kaynakları
 
-## 📝 Log Dosyası
-
-Tüm kurulum işlemleri `kurulum.log` dosyasına kaydedilir. Bu dosyayı incelemek için:
-- Ana menüden "show_log" seçeneğini kullanın
-- Veya terminal ile: `cat kurulum.log`
-
-## 🤝 Katkıda Bulunma
-
-1. Bu repoyu fork edin
-2. Yeni bir branch oluşturun (`git checkout -b yeni-ozellik`)
-3. Değişikliklerinizi commit edin (`git commit -am 'Yeni özellik eklendi'`)
-4. Branch'inizi push edin (`git push origin yeni-ozellik`)
-5. Pull Request açın
-
-## 📄 Lisans
-
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+| Kaynak | Kullanım |
+|---|---|
+| APT | Ubuntu depolarındaki güvenilir paketler |
+| Snap | Snap ile dağıtılan son kullanıcı uygulamaları |
+| Snap classic | Daha geniş sistem erişimi isteyen editörler; onay ekranında gösterilir |
 
 
-**Not**: Sorun yaşarsanız [Issues](https://github.com/alibedirhan/ubuntu-app-ins/issues) bölümünden bildirebilirsiniz.
+## v1.0.3 notları
+
+Bu sürümde seçim UX'i güvenli hale getirildi. Program listeleri varsayılan olarak boş açılır; kullanıcı isterse önerilenleri seçili getirebilir veya tümünü seçebilir. Zenity listelerinde uygulama adı, kaynak, seviye ve açıklama ayrı kolonlarda gösterilir. Kurulum öncesi özet APT, Snap ve dikkat gerektiren uygulamalar şeklinde daha net gruplanır.
+
+## Loglar
+
+Log dosyası şurada tutulur:
+
+```text
+~/.local/share/ubuntu-starter-kit/logs/ubuntu-starter-kit.log
+```
+
+Log paketi toplamak için:
+
+```bash
+bash scripts/collect_logs.sh
+```
+
+## Release kontrolü
+
+```bash
+bash scripts/check_static.sh
+bash scripts/package_release.sh
+```
+
+## Güvenlik notu
+
+Bu araç sisteminize paket kurar. Kurulumdan önce listelenen uygulamaları ve kaynakları inceleyin. Güvenmediğiniz bir scripti çalıştırmayın; bu proje de dahil olmak üzere her kurulum aracının yaptığı işlemleri okumanız önerilir.
+
+## Dokümantasyon
+
+- [Mimari](docs/ARCHITECTURE.md)
+- [Güvenlik](docs/SECURITY.md)
+- [Desteklenen uygulamalar](docs/SUPPORTED_APPS.md)
+- [Kurulum mantığı denetimi](docs/INSTALLATION_LOGIC_AUDIT.md)
+- [Video test listesi](docs/VIDEO_TEST_CHECKLIST.md)
+
+## Lisans
+
+MIT License. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
