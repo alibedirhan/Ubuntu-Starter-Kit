@@ -11,7 +11,9 @@ mkdir -p "$OUT"
   echo "Root: $ROOT_DIR"
   echo "Version: $(cat "$ROOT_DIR/VERSION" 2>/dev/null)"
   uname -a
-  command -v lsb_release >/dev/null 2>&1 && lsb_release -a || true
+  if command -v lsb_release >/dev/null 2>&1; then
+    lsb_release -a
+  fi
 } > "$OUT/environment.txt" 2>&1
 
 bash "$ROOT_DIR/scripts/check_static.sh" > "$OUT/check_static.txt" 2>&1 || true

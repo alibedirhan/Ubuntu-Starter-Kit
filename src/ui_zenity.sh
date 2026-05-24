@@ -3,8 +3,8 @@
 # Zenity UI helpers. Keep all user-facing dialogs here so the CLI/business logic
 # stays maintainable and testable.
 
-UI_WIDTH=900
-UI_HEIGHT=560
+readonly UI_WIDTH=900
+readonly UI_HEIGHT=560
 
 ui_error() {
     local text="$1"
@@ -43,8 +43,8 @@ ui_main_menu() {
         --column="Açıklama" \
         --ok-label="Devam" \
         --cancel-label="Çıkış" \
-        --width=860 \
-        --height=470 \
+        --width="$UI_WIDTH" \
+        --height="$UI_HEIGHT" \
         TRUE "profile" "Profil seç: yeni kullanıcı, yazılımcı, içerik üretici" \
         FALSE "categories" "Kategori seç: tek tek, önerilen veya tüm kategori" \
         FALSE "all_apps" "Tüm katalog: uygulamaları elle seç" \
@@ -64,8 +64,8 @@ ui_select_profile() {
         --column="Açıklama" \
         --ok-label="Profil seç" \
         --cancel-label="Geri" \
-        --width=860 \
-        --height=500 \
+        --width="$UI_WIDTH" \
+        --height="$UI_HEIGHT" \
         TRUE "beginner" "Yeni kullanıcı: güvenli temel uygulamalar" \
         FALSE "daily" "Günlük kullanım: ofis, medya, iletişim" \
         FALSE "developer" "Yazılımcı: geliştirme araçları" \
@@ -86,8 +86,8 @@ ui_select_categories() {
         --separator="|" \
         --ok-label="Kategori seç" \
         --cancel-label="Geri" \
-        --width=860 \
-        --height=520 \
+        --width="$UI_WIDTH" \
+        --height="$UI_HEIGHT" \
         FALSE "daily" "Günlük kullanım" \
         FALSE "development" "Geliştirici araçları" \
         FALSE "media" "Medya ve içerik" \
@@ -137,7 +137,7 @@ ui_select_apps_by_ids() {
     local ids="$2"
     local preset="${3:-empty}"
     local zenity_args=()
-    local app_id selected name source risk desc desc_fields
+    local app_id selected name source risk desc
 
     while IFS= read -r app_id; do
         [[ -z "$app_id" ]] && continue

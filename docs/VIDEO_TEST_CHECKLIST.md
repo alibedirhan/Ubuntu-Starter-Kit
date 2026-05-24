@@ -15,7 +15,7 @@ Yayın öncesi kısa test sırası:
 11. Son seçim listesi kaydedilip geri yüklenebiliyor mu?
 
 
-## v1.0.3 selection-polish
+## v1.0.4 selection-polish
 
 - Uygulama seçim listeleri varsayılan olarak boş açılır.
 - Önerilenleri seçili getir ve tümünü seç akışları eklendi.

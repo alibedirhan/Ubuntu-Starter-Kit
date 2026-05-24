@@ -239,7 +239,10 @@ selected_apps_summary() {
         pkg=$(catalog_package "$app_id")
         desc=$(catalog_description "$app_id")
         risk=$(catalog_risk_level "$app_id")
-        local line="• $name\n  Kaynak: $(source_display_name "$source") | Paket: $pkg | Seviye: $risk\n  $desc\n\n"
+        local source_label
+        local line
+        source_label=$(source_display_name "$source")
+        line="• $name\n  Kaynak: $source_label | Paket: $pkg | Seviye: $risk\n  $desc\n\n"
 
         case "$source" in
             apt) apt_section+="$line" ;;

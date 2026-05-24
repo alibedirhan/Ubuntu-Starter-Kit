@@ -1,4 +1,4 @@
-# Ubuntu Starter Kit v1.0.3
+# Ubuntu Starter Kit v1.0.4
 
 Ubuntu Starter Kit, Ubuntu kurulumundan sonra sık kullanılan uygulamaları seçip kurmanıza yardımcı olan sade bir başlangıç asistanıdır.
 
@@ -33,8 +33,8 @@ Bu araç **Ubuntu App Center'ın yerine geçmez**. Amacı; yeni kullanıcıya an
 ## Kurulum ve çalıştırma
 
 ```bash
-git clone https://github.com/alibedirhan/ubuntu-app-ins.git
-cd ubuntu-app-ins
+git clone https://github.com/alibedirhan/Ubuntu-Starter-Kit.git
+cd Ubuntu-Starter-Kit
 
 bash scripts/check_static.sh
 chmod +x ubuntu-starter.sh
@@ -86,7 +86,7 @@ Eski dosya adını kullananlar için uyumluluk başlatıcısı da var:
 | Snap classic | Daha geniş sistem erişimi isteyen editörler; onay ekranında gösterilir |
 
 
-## v1.0.3 notları
+## v1.0.4 notları
 
 Bu sürümde seçim UX'i güvenli hale getirildi. Program listeleri varsayılan olarak boş açılır; kullanıcı isterse önerilenleri seçili getirebilir veya tümünü seçebilir. Zenity listelerinde uygulama adı, kaynak, seviye ve açıklama ayrı kolonlarda gösterilir. Kurulum öncesi özet APT, Snap ve dikkat gerektiren uygulamalar şeklinde daha net gruplanır.
 

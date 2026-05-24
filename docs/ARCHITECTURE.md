@@ -31,7 +31,7 @@ Temel prensipler:
 - Geri yükleme sistemi tüm dpkg paketlerini değil, sadece katalogdaki uygulama ID'lerini işler.
 
 
-## v1.0.3 selection-polish
+## v1.0.4 selection-polish
 
 - Uygulama seçim listeleri varsayılan olarak boş açılır.
 - Önerilenleri seçili getir ve tümünü seç akışları eklendi.

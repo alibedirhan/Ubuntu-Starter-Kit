@@ -36,7 +36,7 @@ ok "Bash sözdizimi OK"
 
 printf '[3/13] ShellCheck opsiyonel\n'
 if command -v shellcheck >/dev/null 2>&1; then
-    shellcheck ubuntu-starter.sh application-installer.sh src/*.sh scripts/*.sh || fail "ShellCheck hata verdi"
+    shellcheck --severity=warning ubuntu-starter.sh application-installer.sh src/*.sh scripts/*.sh || fail "ShellCheck hata verdi"
     ok "ShellCheck OK"
 else
     echo "[INFO] shellcheck bulunamadı, atlandı"

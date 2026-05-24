@@ -1,6 +1,6 @@
-# Ubuntu Starter Kit v1.0.3 Kurulum Mantığı Denetimi
+# Ubuntu Starter Kit v1.0.4 Kurulum Mantığı Denetimi
 
-Bu doküman, v1.0.3 sürümünde yapılan mantık ve ürün denetimini özetler.
+Bu doküman, v1.0.4 sürümünde yapılan mantık ve ürün denetimini özetler.
 
 ## Düzeltilenler
 
@@ -34,7 +34,7 @@ Bazı uygulamalar Ubuntu sürümüne, etkin depolara veya Snap kullanılabilirli
 - Flatpak desteği ayrı ve açık onaylı bir hazırlık akışı olarak daha detaylı sunulabilir.
 
 
-## v1.0.3 selection-polish
+## v1.0.4 selection-polish
 
 - Uygulama seçim listeleri varsayılan olarak boş açılır.
 - Önerilenleri seçili getir ve tümünü seç akışları eklendi.

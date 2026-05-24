@@ -2,8 +2,8 @@
 set -u
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VERSION="$(cat "$SCRIPT_DIR/VERSION" 2>/dev/null | tr -d '[:space:]')"
-[[ -z "$VERSION" ]] && VERSION="1.0.3"
+VERSION="$(tr -d '[:space:]' < "$SCRIPT_DIR/VERSION" 2>/dev/null)"
+[[ -z "$VERSION" ]] && VERSION="1.0.4"
 
 APP_ID="ubuntu-starter-kit"
 APP_DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/$APP_ID"

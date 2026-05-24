@@ -2,7 +2,7 @@
 
 show_install_report() {
     local results_file="$1"
-    local success=0 skip=0 error=0 line status app_id message name report
+    local success=0 skip=0 error=0 status app_id message name report
 
     report="Kurulum Raporu\n\n"
     while IFS='|' read -r status app_id message; do

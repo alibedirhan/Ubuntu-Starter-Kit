@@ -26,6 +26,17 @@ else
     C_RESET=""; C_DIM=""; C_BOLD=""; C_GREEN=""; C_YELLOW=""; C_RED=""; C_CYAN=""; C_BLUE=""
 fi
 
+term_line() {
+    local char="${1:-─}"
+    local width="${TERM_WIDTH:-72}"
+    printf '%*s' "$width" '' | tr ' ' "$char"
+}
+
+run_logged() {
+    "$@" 2>&1 | tee -a "$LOG_FILE" >/dev/null
+    return "${PIPESTATUS[0]}"
+}
+
 term_print() {
     # Prefer the real terminal when available, but never fail in non-interactive checks.
     if [[ -e /dev/tty ]]; then
@@ -35,7 +46,7 @@ term_print() {
 }
 
 term_hr() {
-    term_print "${C_DIM}────────────────────────────────────────────────────────────${C_RESET}"
+    term_print "${C_DIM}$(term_line)${C_RESET}"
 }
 
 term_compact_path() {
@@ -146,7 +157,7 @@ apt_update_once() {
     fi
     log_info "APT update çalışıyor"
     term_stage "APT paket listesi güncelleniyor"
-    if sudo apt-get update >> "$LOG_FILE" 2>&1; then
+    if run_logged sudo apt-get update; then
         APT_UPDATED=true
         term_success "APT paket listesi güncellendi"
         return 0
@@ -192,7 +203,7 @@ install_apt_app() {
     apt_update_once || return 1
     term_stage "APT kurulumu: $pkg"
     # shellcheck disable=SC2086
-    sudo apt-get install -y $pkg >> "$LOG_FILE" 2>&1
+    run_logged sudo apt-get install -y $pkg
 }
 
 install_snap_app() {
@@ -205,15 +216,15 @@ install_snap_app() {
         log_warn "snapd bulunamadı, apt ile kurulmaya çalışılacak"
         term_stage "snapd bulunamadı; snap desteği kuruluyor"
         apt_update_once || return 1
-        sudo apt-get install -y snapd >> "$LOG_FILE" 2>&1 || return 1
+        run_logged sudo apt-get install -y snapd || return 1
     fi
 
     if [[ "$source" == "snap_classic" ]]; then
         term_stage "Snap classic kurulumu: $pkg"
-        sudo snap install "$pkg" --classic >> "$LOG_FILE" 2>&1
+        run_logged sudo snap install "$pkg" --classic
     else
         term_stage "Snap kurulumu: $pkg"
-        sudo snap install "$pkg" >> "$LOG_FILE" 2>&1
+        run_logged sudo snap install "$pkg"
     fi
 }
 

@@ -1,6 +1,6 @@
 # Desteklenen Uygulamalar
 
-Ubuntu Starter Kit v1.0.3 kataloğu seçilmiş uygulamalardan oluşur. Amaç Ubuntu kurulumundan sonra sık kullanılan araçları güvenli kaynaklardan kurmayı kolaylaştırmaktır.
+Ubuntu Starter Kit v1.0.4 kataloğu seçilmiş uygulamalardan oluşur. Amaç Ubuntu kurulumundan sonra sık kullanılan araçları güvenli kaynaklardan kurmayı kolaylaştırmaktır.
 
 Katalog yaklaşık 70 uygulama içerir ve şu kategorilere ayrılır:
 
@@ -21,7 +21,7 @@ Kaynak türleri:
 Gelişmiş/dikkatli kullanılması gereken araçlar katalogda `advanced` etiketiyle tutulur. Bu araçlar kurulumdan önce onay ekranında uyarı üretir.
 
 
-## v1.0.3 selection-polish
+## v1.0.4 selection-polish
 
 - Uygulama seçim listeleri varsayılan olarak boş açılır.
 - Önerilenleri seçili getir ve tümünü seç akışları eklendi.
